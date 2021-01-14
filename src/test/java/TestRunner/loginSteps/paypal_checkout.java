@@ -48,7 +48,7 @@ public class paypal_checkout extends SetupClass {
 
 		}
 	    Thread.sleep(1000);
-            try {
+		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
@@ -73,7 +73,6 @@ public class paypal_checkout extends SetupClass {
 				catch(NoSuchElementException NCP) {
 					
 				}
-
 	    
 	}
 
@@ -82,159 +81,81 @@ public class paypal_checkout extends SetupClass {
 		Thread.sleep(3000);
 		try {
 			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
-			//driver.get("https://www.slideteam.net/customer/account/login/referer/aHR0cHM6Ly93d3cuc2xpZGV0ZWFtLm5ldC9jdXN0b21lci9hY2NvdW50L2luZGV4Lw%2C%2C/");
 			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
 		}
 	}
-
+	
 	@Then("^user create a new ac count pp$")
 	public void user_create_a_new_ac_count_pp() throws Throwable {
-		//WebDriverWait pp = new WebDriverWait(driver,100);
 		// create new email for sign up
 		
 		int leftLimit = 97; // letter 'a'
-			    int rightLimit = 122; // letter 'z'
-			    int targetStringLength = 10;
-			    Random random = new Random();
-			    StringBuilder buffer = new StringBuilder(targetStringLength);
-			    for (int i = 0; i < targetStringLength; i++) {
-			        int randomLimitedInt = leftLimit + (int) 
-			          (random.nextFloat() * (rightLimit - leftLimit + 1));
-			        buffer.append((char) randomLimitedInt);
-			    }
-			    String generatedString = buffer.toString();
-			 
-			    System.out.println(generatedString);
-			    
-			    String signup_email=generatedString;
-			    String full_email="selenium.testing."+generatedString+"@gmail.com";
-			    System.out.println(full_email);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
-				//driver.findElement(By.id("email_address")).sendKeys(full_email);
-				
+	    int rightLimit = 122; // letter 'z'
+	    int targetStringLength = 10;
+	    Random random = new Random();
+	    StringBuilder buffer = new StringBuilder(targetStringLength);
+	    for (int i = 0; i < targetStringLength; i++) {
+	        int randomLimitedInt = leftLimit + (int) 
+	          (random.nextFloat() * (rightLimit - leftLimit + 1));
+	        buffer.append((char) randomLimitedInt);
+	    }
+	    String generatedString = buffer.toString();
+	 
+	    System.out.println(generatedString);
+	    
+	    String signup_email=generatedString;
+	    String full_email="selenium.testing."+generatedString+"@gmail.com";
+	    System.out.println(full_email);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+		//driver.findElement(By.id("email_address")).sendKeys(full_email);
+		
 
-				Thread.sleep(2000);
-		try {
-			    WebElement new_email_signup = driver.findElement(By.xpath("//*[@id='email_address']"));
-				Thread.sleep(2000);
-			    new_email_signup.sendKeys(full_email);
-				Thread.sleep(2000);
-		}
-		catch( NoSuchElementException popup) {
-		}
-				// enter name
-               try {
-			   WebElement FirstName= driver.findElement(By.xpath("//*[@id='firstname']"));
-		FirstName.click();
 		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		FirstName.clear();
+	    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
 		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		FirstName.sendKeys("Selenium");
+	    new_email_signup.sendKeys(full_email);
 		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		log.info("It's entering the user First Name");
-                    }
-		catch( NoSuchElementException popup) {
-		}
-		try {
-			    WebElement LastName= driver.findElement(By.xpath("//*[@id='lastname']"));
-		LastName.click();
+		
+		// enter name
+
+	    WebElement new_fname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstname")));
 		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		LastName.clear();
+	    new_fname_signup.sendKeys("Selenium");
 		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		LastName.sendKeys("Testing");
+
+	    WebElement new_lname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("lastname")));
 		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		log.info("It's entering the user Last Name");
-			}
-		catch( NoSuchElementException popup) {
-		}	
-				//enter password
-		try {
-				 WebElement Pass_word = driver.findElement(By.xpath("//*[@id='password']"));
-		Pass_word.click();
+	    new_lname_signup.sendKeys("Testing");
 		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		Pass_word.clear();
-		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		Pass_word.sendKeys("selenium@123");
-		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		log.info("It's entering the user password");
-                 }
-		catch( NoSuchElementException popup) {
-		}
-		try {
-				    WebElement Confirm_password= driver.findElement(By.xpath("//*[@id='password-confirmation']"));
-		//wait.implictywait(driver);
-		Thread.sleep(2000);
-		Confirm_password.click();
-		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		Confirm_password.clear();
-		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		Confirm_password.sendKeys("selenium@123");
-		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		log.info("It's entering the user password");
-			}
-		catch( NoSuchElementException popup) {
-		}		
-					// enter captcha
-		try {
-		WebElement Captcha= driver.findElement(By.cssSelector("#captcha_user_create"));
-		//wait.implictywait(driver);
-		Thread.sleep(2000);
-		//Captcha.click();
-		//Thread.sleep(2000);
-		//wait.implictywait(driver);
-		Captcha.clear();
-		Thread.sleep(2000);
-		//wait.implictywait(driver);
-		Captcha.sendKeys("Aj7W2mtf9namwf55");
-		Thread.sleep(1000);
-		//wait.implictywait(driver);
-		log.info("It's entering the user password");
-			}
-		catch( NoSuchElementException popup) {
-		}	    
-				    // sign  up button
-		try {
-				    WebDriverWait wait = new WebDriverWait(driver, 40);
-			WebElement element = driver.findElement(By.xpath("/html/body/div[2]/main/div/div/div[2]/div/form/fieldset/div[8]/div[2]/div/div/button"));
-			Thread.sleep(1000);
-			js.executeScript("arguments[0].click();", element);
+		
+		//enter password
+		 WebElement new_pwd_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
+			Thread.sleep(2000);
+		    new_pwd_signup.sendKeys("selenium@123");
 			Thread.sleep(2000);
 
-			}
-		catch( NoSuchElementException popup) {
-		}
-		
-		/*Thread.sleep(1000);
-		WebElement old_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='email']")));
-		js.executeScript("arguments[0].scrollIntoView();",old_email);
-		Thread.sleep(1000);
-	    old_email.sendKeys("himanshi@test.com");
-	    Thread.sleep(1000);
-	    WebElement old_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pass']")));
-		js.executeScript("arguments[0].scrollIntoView();",old_pass);
-	    Thread.sleep(1000);
-	    old_pass.sendKeys("123456");
-	    Thread.sleep(1000);
-	     WebElement old_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.login > span:nth-child(1)")));
-		 Thread.sleep(1000);
-		    old_login_btn.click(); */
-		
+		    WebElement new_pwd1_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password-confirmation")));
+			Thread.sleep(2000);
+		    new_pwd1_signup.sendKeys("selenium@123");
+			Thread.sleep(2000);
+			
+			// enter captcha
+			WebElement new_captcha_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("captcha_user_create")));
+			Thread.sleep(2000);
+		    new_captcha_signup.sendKeys("Aj7W2mtf9namwf55");
+			Thread.sleep(2000);
+		    
+		    // sign  up button
+		    WebElement new_btn_signup = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".submit")));
+			Thread.sleep(2000);
+		    new_btn_signup.click();
+			Thread.sleep(2000);
+	    
 	}
+
  
 	@Then("^user is redirected to pricing page and check the text1 PP1$")
 	public void user_is_redirected_to_pricing_page_and_check_the_text1_PP1() throws Throwable {
@@ -702,12 +623,13 @@ public class paypal_checkout extends SetupClass {
 			Thread.sleep(4000);
 			driver.get("https://www.slideteam.net/pricing");
 		//driver.get("https://www.slideteam.net/pricing?utm_expid=.ob6CI18MTrailD_9AQRC-g.0&utm_referrer=https%3A%2F%2Fwww.slideteam.net%2Fpricing");
-		js.executeScript("window.scrollBy(0,1000)");
-		 WebElement join_now_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(.,'Join now')])[8]")));
-		js.executeScript("arguments[0].scrollIntoView();",join_now_btn);		
+		Thread.sleep(4000);
+		// choose a plan
+		 WebElement join_now_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[3]//div[3]//span[1]//form[1]//button[1]//span[1]")));
+		js.executeScript("arguments[0].scrollIntoView();",join_now_btn);	
 		Thread.sleep(2000);
 		    join_now_btn.click();
-			Thread.sleep(6000);
+			Thread.sleep(5000);
 
 			///
 		/* WebElement join_now_btn  = driver.findElement(By.cssSelector("div.col-box:nth-child(2) > div:nth-child(3) > span:nth-child(1) > form:nth-child(1) > button:nth-child(4) > span:nth-child(1)"));
@@ -716,7 +638,7 @@ public class paypal_checkout extends SetupClass {
 			Thread.sleep(2000);
 		    join_now_btn.click();
 			Thread.sleep(6000);*/
-		}catch( NoSuchElementException popup) {
+		} catch( NoSuchElementException popup) {
 		}
 
 
@@ -812,7 +734,16 @@ public class paypal_checkout extends SetupClass {
 
 	@Then("^user deleted the account pp$")
 	public void user_deleted_the_account_pp() throws Throwable {
-	   try {
+	   Thread.sleep(2000);
+		
+
+		 driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
+		 Thread.sleep(3000);
+		 
+		
+
+
+try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
@@ -838,24 +769,17 @@ public class paypal_checkout extends SetupClass {
 					
 				}
 
-		Thread.sleep(3000);
-		/*driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
-		 Thread.sleep(3000);*/
-		
-		driver.get("https://www.slideteam.net/customer/account/");
-		
-		 Thread.sleep(3000);
-		
 
-		WebElement delete_account =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Delete Account')]")));
-		 js.executeScript("arguments[0].scrollIntoView();",delete_account);
+
+		 WebElement delete_account = driver.findElement(By.xpath("//a[contains(text(),'Delete Account')]"));
+		js.executeScript("arguments[0].scrollIntoView();",delete_account);
 		 delete_account.click();
 		 Thread.sleep(3000);
 		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit'][contains(.,'Continue')]")));
-		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
+		js.executeScript("arguments[0].scrollIntoView();",continue_delete); 
 		continue_delete.click();
 		 Thread.sleep(3000);
+		
 	}
-
 
 }
