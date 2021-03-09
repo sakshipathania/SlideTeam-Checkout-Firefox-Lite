@@ -771,15 +771,20 @@ try {
 
 
 
-		 WebElement delete_account = driver.findElement(By.xpath("//a[contains(text(),'Delete Account')]"));
-		js.executeScript("arguments[0].scrollIntoView();",delete_account);
+		WebElement delete_account =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Delete Account')]")));
+		 js.executeScript("arguments[0].scrollIntoView();",delete_account);
 		 delete_account.click();
 		 Thread.sleep(3000);
-		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit'][contains(.,'Continue')]")));
-		js.executeScript("arguments[0].scrollIntoView();",continue_delete); 
-		continue_delete.click();
+		
+		WebElement delete_btn = driver.findElement(By.cssSelector("#exampleRadios1"));
+		 Thread.sleep(3000);
+		delete_btn.click();
 		 Thread.sleep(3000);
 		
+		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#deleteaccount-form > div.modal-footer > button.btn.btn-default.delete_prfile.btn-submit")));
+		 Thread.sleep(3000);
+		continue_delete.click();
+		 Thread.sleep(3000);
 	}
 
 }
