@@ -266,7 +266,9 @@ public class SignUp_Step extends SetupClass {
 				}
 
                  WebElement delete_account =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Delete Account')]")));
+		Thread.sleep(3000);
 		 js.executeScript("arguments[0].scrollIntoView();",delete_account);
+		Thread.sleep(3000);
 		 delete_account.click();
 		 Thread.sleep(3000);
 		
