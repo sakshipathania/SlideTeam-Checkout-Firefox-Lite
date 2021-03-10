@@ -233,13 +233,16 @@ public class SignUp_Step extends SetupClass {
 	@Then("^user wants to delete the new account created cd$")
 	public void user_wants_to_delete_the_new_account_created_cd() throws InterruptedException  {
 
-		// driver.findElement(By.xpath("//a[contains(text(),'My Account')]")).click();
-		driver.get("https://www.slideteam.net/customer/account/");
+		Thread.sleep(2000);
+		
+
+		 driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
 		 Thread.sleep(3000);
 		 
+		
 
 
-                   try {
+try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
@@ -265,10 +268,10 @@ public class SignUp_Step extends SetupClass {
 					
 				}
 
-                 WebElement delete_account =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Delete Account')]")));
-		Thread.sleep(3000);
+
+
+		WebElement delete_account =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Delete Account')]")));
 		 js.executeScript("arguments[0].scrollIntoView();",delete_account);
-		Thread.sleep(3000);
 		 delete_account.click();
 		 Thread.sleep(3000);
 		
