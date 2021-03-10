@@ -51,7 +51,8 @@ public class Non_Logged_In_User extends SetupClass {
 
 	@Then("^user is redirected to Login page viii$")
 	public void user_is_redirected_to_Login_page_viii() throws Throwable {
-	   
+	   driver.get('https://www.slideteam.net/customer/account/login/referer/aHR0cHM6Ly93d3cuc2xpZGV0ZWFtLm5ldC9zaGFyZS1hbmQtZG93bmxvYWQtcHJvZHVjdHMv/');
+		Thread.sleep(2000);
 	}
   
   @Then("^user login with correct details viii$")
