@@ -209,7 +209,7 @@ public class SignUp_Step extends SetupClass {
 		WebElement free_ppt_btn1=wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Free Stuff")));
 		actions.moveToElement(free_ppt_btn1).moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Free PPTs')]"))).click().build().perform();
 		Thread.sleep(7000);*/
-		driver.get('https://www.slideteam.net/share-and-download-products/');
+		driver.get("https://www.slideteam.net/share-and-download-products/");
 	   
 		Thread.sleep(3000);
 	}
