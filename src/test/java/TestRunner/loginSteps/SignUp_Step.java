@@ -221,7 +221,7 @@ public class SignUp_Step extends SetupClass {
 		js.executeScript("arguments[0].scrollIntoView();",delete_profile);
 		delete_profile.click();
 		 Thread.sleep(3000);
-	}
+	
 		/*try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
