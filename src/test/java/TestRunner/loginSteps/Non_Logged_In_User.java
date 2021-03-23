@@ -36,7 +36,7 @@ public class Non_Logged_In_User extends SetupClass {
 	}
 
 	@Then("^User click on Download button to download the product viii$")
-	public void user_click_on_Download_button_to_download_the_product_viii() throws Throwable {
+	public void User_click_on_Download_button_to_download_the_product_viii() throws Throwable {
 	    
 		WebElement download_btn_pdp_fp = wait.until(ExpectedConditions.elementToBeClickable(By.id("clicking")));
 		js.executeScript("arguments[0].scrollIntoView();",download_btn_pdp_fp);	
@@ -51,8 +51,7 @@ public class Non_Logged_In_User extends SetupClass {
 
 	@Then("^user is redirected to Login page viii$")
 	public void user_is_redirected_to_Login_page_viii() throws Throwable {
-	  // driver.get('https://www.slideteam.net/customer/account/login/');
-		Thread.sleep(2000);
+	   
 	}
   
   @Then("^user login with correct details viii$")
@@ -82,11 +81,13 @@ public class Non_Logged_In_User extends SetupClass {
 
 	@Then("^user download the product viii$")
 	public void user_download_the_product_viii() throws Throwable {
-	    
-		WebElement download_btn_pdp_fp = wait.until(ExpectedConditions.elementToBeClickable(By.id("clicking")));
-		js.executeScript("arguments[0].scrollIntoView();",download_btn_pdp_fp);	
+		Thread.sleep(3000);
+	    // driver.get("https://www.slideteam.net/puzzles-with-multiple-business-icons-flat-powerpoint-design.html");
+		//Thread.sleep(2000);
+		WebElement download_btn_pdp= wait.until(ExpectedConditions.elementToBeClickable(By.id("clicking")));
+		js.executeScript("arguments[0].scrollIntoView();",download_btn_pdp);	
 		Thread.sleep(2000);
-		download_btn_pdp_fp.click();
+		download_btn_pdp.click();
 		Thread.sleep(2000);
 		
 	}
