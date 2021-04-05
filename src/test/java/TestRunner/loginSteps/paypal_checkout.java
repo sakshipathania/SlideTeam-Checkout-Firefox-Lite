@@ -781,12 +781,12 @@ try {
 		delete_btn.click();
 		 Thread.sleep(3000);
 		
-			 WebElement delete_profile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#delete-final")));
-		 Thread.sleep(3000);
+		 WebElement delete_profile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#delete-final")));
+		js.executeScript("arguments[0].scrollIntoView();",delete_profile);
 		delete_profile.click();
 		 Thread.sleep(3000);
 		
-		WebElement delete_profile_coupon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit'][contains(.,' No, delete my account')]")));
+		WebElement delete_profile_coupon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#flipModal > div > div > div.modal-footer.button_action > button.btn.btn-default.button_2")));
 		js.executeScript("arguments[0].scrollIntoView();",delete_profile_coupon);
 		delete_profile_coupon.click();
 		 Thread.sleep(3000);
