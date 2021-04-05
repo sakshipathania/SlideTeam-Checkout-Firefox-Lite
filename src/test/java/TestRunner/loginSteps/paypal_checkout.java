@@ -781,7 +781,7 @@ try {
 		delete_btn.click();
 		 Thread.sleep(3000);
 		
-		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#deleteaccount-form > div.modal-footer > button.btn.btn-default.delete_prfile.btn-submit")));
+			 WebElement delete_profile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#delete-final")));
 		 Thread.sleep(3000);
 		continue_delete.click();
 		 Thread.sleep(3000);
