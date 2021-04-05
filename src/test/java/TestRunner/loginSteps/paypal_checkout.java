@@ -783,7 +783,7 @@ try {
 		
 			 WebElement delete_profile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#delete-final")));
 		 Thread.sleep(3000);
-		continue_delete.click();
+		delete_profile.click();
 		 Thread.sleep(3000);
 		
 		WebElement delete_profile_coupon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit'][contains(.,' No, delete my account')]")));
