@@ -737,7 +737,7 @@ public class paypal_checkout extends SetupClass {
 	   Thread.sleep(2000);
 		
 
-		 driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
+		/* driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
 		 Thread.sleep(3000);
 		 
 		
@@ -790,6 +790,17 @@ try {
 		js.executeScript("arguments[0].scrollIntoView();",delete_profile_coupon);
 		delete_profile_coupon.click();
 		 Thread.sleep(3000);
+	}*/
+		try {
+			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
+			if (logout.isEnabled()) {
+				logout.click();
+				Thread.sleep(8000);
+				driver.navigate().refresh();
+				Thread.sleep(2000);
+			}
+		} catch (NoSuchElementException Ext) {
+		}
 	}
 
 }
