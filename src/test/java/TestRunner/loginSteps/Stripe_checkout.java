@@ -697,10 +697,10 @@ public class Stripe_checkout extends SetupClass{
 	public void user_deleted_the_account_CO(int arg1) throws Throwable {
 		Thread.sleep(8000);
 
-		
-		 WebElement account = driver.findElement(By.cssSelector("body > div.page-wrapper > header > div.header.content > div.panel.wrapper > div > div > ul > li:nth-child(1) > a"));
-			  Thread.sleep(3000);
-			account.click();
+		driver.get("https://www.slideteam.net/customer/account/");
+		// WebElement account = driver.findElement(By.cssSelector("body > div.page-wrapper > header > div.header.content > div.panel.wrapper > div > div > ul > li:nth-child(1) > a"));
+		//	  Thread.sleep(3000);
+			//account.click();
 		 Thread.sleep(3000);
 		 
 		
