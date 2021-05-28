@@ -21,7 +21,7 @@ import webApp.PerformAction;
 
 public class Stripe_checkout extends SetupClass{
 	
-	WebDriverWait wait = new WebDriverWait(driver,30);
+	WebDriverWait wait = new WebDriverWait(driver,50);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 	
 	@Given("^user is already on Website Home Page (\\d+)CO$")
@@ -695,7 +695,7 @@ public class Stripe_checkout extends SetupClass{
 
 	@Then("^user deleted the account (\\d+)CO$")
 	public void user_deleted_the_account_CO(int arg1) throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 
 		
 		 WebElement account = driver.findElement(By.cssSelector("body > div.page-wrapper > header > div.header.content > div.panel.wrapper > div > div > ul > li:nth-child(1) > a"));
