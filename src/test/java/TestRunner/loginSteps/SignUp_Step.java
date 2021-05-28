@@ -1,17 +1,11 @@
 package TestRunner.loginSteps;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
 
 import ObjectRepository.SignupObject;
 import TestRunner.SetupClass;
@@ -182,9 +176,7 @@ public class SignUp_Step extends SetupClass {
 		 Thread.sleep(3000);
 		 
 		
-
-
-                  try {
+                try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
@@ -217,10 +209,10 @@ public class SignUp_Step extends SetupClass {
 		delete_reason.click();
 		Thread.sleep(3000);
 		
-		 	 WebElement delete_profile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#delete-final")));
+		 WebElement delete_profile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#delete-final")));
 		js.executeScript("arguments[0].scrollIntoView();",delete_profile);
 		delete_profile.click();
-		 Thread.sleep(3000);
+		 Thread.sleep(10000);
 		
 		WebElement delete_profile_coupon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#flipModal > div > div > div.modal-footer.button_action > button.btn.btn-default.button_2")));
 		js.executeScript("arguments[0].scrollIntoView();",delete_profile_coupon);
@@ -236,7 +228,10 @@ public class SignUp_Step extends SetupClass {
 				Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
+
 		}
 	}
+
+	
 	
 }
