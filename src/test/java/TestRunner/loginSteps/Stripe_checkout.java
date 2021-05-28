@@ -698,7 +698,7 @@ public class Stripe_checkout extends SetupClass{
 		Thread.sleep(3000);
 
 		
-		 WebElement account = driver.findElement(By.xpath("//a[contains(.,'My Account')]"));
+		 WebElement account = driver.findElement(By.cssSelector("body > div.page-wrapper > header > div.header.content > div.panel.wrapper > div > div > ul > li:nth-child(1) > a"));
 			  Thread.sleep(3000);
 			account.click();
 		 Thread.sleep(3000);
