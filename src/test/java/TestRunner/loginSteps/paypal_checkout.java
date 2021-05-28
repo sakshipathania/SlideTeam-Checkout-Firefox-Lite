@@ -2,17 +2,15 @@ package TestRunner.loginSteps;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.Arrays;
-import java.util.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
+
 
 import ObjectRepository.LoginObject;
 import ObjectRepository.SignupObject;
@@ -24,10 +22,8 @@ import webApp.PerformAction;
 
 public class paypal_checkout extends SetupClass {
 	
-        WebDriverWait wait = new WebDriverWait(driver,40);
-        //PerformAction wait = new PerformAction();
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	Random rad = new Random();
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 	
 	@Given("^user is already on Website Home Page pp$")
 	public void user_is_already_on_Website_Home_Page_pp() throws Throwable {
@@ -81,15 +77,17 @@ public class paypal_checkout extends SetupClass {
 		Thread.sleep(3000);
 		try {
 			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
+			//driver.get("https://www.slideteam.net/customer/account/login/referer/aHR0cHM6Ly93d3cuc2xpZGV0ZWFtLm5ldC9jdXN0b21lci9hY2NvdW50L2luZGV4Lw%2C%2C/");
 			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
 		}
 	}
-	
+
 	@Then("^user create a new ac count pp$")
 	public void user_create_a_new_ac_count_pp() throws Throwable {
+		
 		// create new email for sign up
 		
 		int leftLimit = 97; // letter 'a'
@@ -114,7 +112,7 @@ public class paypal_checkout extends SetupClass {
 		
 
 		Thread.sleep(2000);
-	    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
+	    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div/div/div[2]/div/form/fieldset/div[4]/div/input")));
 		Thread.sleep(2000);
 	    new_email_signup.sendKeys(full_email);
 		Thread.sleep(2000);
@@ -153,10 +151,24 @@ public class paypal_checkout extends SetupClass {
 			Thread.sleep(2000);
 		    new_btn_signup.click();
 			Thread.sleep(2000);
+		/*Thread.sleep(1000);
+		WebElement old_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='email']")));
+		js.executeScript("arguments[0].scrollIntoView();",old_email);
+		Thread.sleep(1000);
+	    old_email.sendKeys("Qwerty120@gmail.com");
+	    Thread.sleep(1000);
+	    WebElement old_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pass']")));
+		js.executeScript("arguments[0].scrollIntoView();",old_pass);
+	    Thread.sleep(4000);
+	    old_pass.sendKeys("Qwerty@1");
+	    Thread.sleep(3000);
+	     WebElement old_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.login > span:nth-child(1)")));
+		 Thread.sleep(2000);
+		    old_login_btn.click();*/
 	    
 	}
 
- 
+	
 	@Then("^user is redirected to pricing page and check the text1 PP1$")
 	public void user_is_redirected_to_pricing_page_and_check_the_text1_PP1() throws Throwable {
 		Thread.sleep(7000);
@@ -350,6 +362,8 @@ public class paypal_checkout extends SetupClass {
 		
 		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[2]")));
 				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Business_Team);
+		Thread.sleep(3000);
 		Business_Team.click();
 		Thread.sleep(3000);
 		
@@ -376,6 +390,8 @@ public class paypal_checkout extends SetupClass {
 		       Thread.sleep(4000);
 		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[2]")));
 				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Business_Team);
+		Thread.sleep(3000);
 		Business_Team.click();
 		Thread.sleep(3000);
 	
@@ -402,6 +418,8 @@ public class paypal_checkout extends SetupClass {
 		       Thread.sleep(4000);
 		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[2]")));
 				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Business_Team);
+		Thread.sleep(3000);
 		Business_Team.click();
 		Thread.sleep(3000);
 	
@@ -428,6 +446,8 @@ public class paypal_checkout extends SetupClass {
 		       Thread.sleep(4000);
 		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[2]")));
 				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Business_Team);
+		Thread.sleep(3000);
 		Business_Team.click();
 		Thread.sleep(3000);
 	
@@ -454,6 +474,8 @@ public class paypal_checkout extends SetupClass {
 		       Thread.sleep(4000);
 		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[2]")));
 				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Business_Team);
+		Thread.sleep(3000);
 		Business_Team.click();
 		Thread.sleep(3000);
 	
@@ -480,6 +502,8 @@ public class paypal_checkout extends SetupClass {
 		       Thread.sleep(4000);
 		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[2]")));
 				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Business_Team);
+		Thread.sleep(3000);
 		Business_Team.click();
 		Thread.sleep(3000);
 	
@@ -503,12 +527,11 @@ public class paypal_checkout extends SetupClass {
 	public void user_is_redirected_to_pricing_page_and_check_the_text15_PP0() throws Throwable {
 		Thread.sleep(7000);
 		driver.get("https://www.slideteam.net/pricing");
-		
 		       Thread.sleep(4000);
 		WebElement Education = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[3]")));
-		Thread.sleep(2000);
-		js.executeScript("arguments[0].scrollIntoView();",Education);		
-		Thread.sleep(2000);
+				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Education);
+		Thread.sleep(3000);
 		Education.click();
 		Thread.sleep(3000);
 	
@@ -535,8 +558,8 @@ public class paypal_checkout extends SetupClass {
 		       Thread.sleep(4000);
 		WebElement Education = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[3]")));
 				Thread.sleep(2000);
-		Thread.sleep(2000);
-		js.executeScript("arguments[0].scrollIntoView();",Education);		
+		js.executeScript("arguments[0].scrollIntoView();",Education);
+		Thread.sleep(3000);
 		Education.click();
 		Thread.sleep(3000);
 	
@@ -562,10 +585,9 @@ public class paypal_checkout extends SetupClass {
 		driver.get("https://www.slideteam.net/pricing");
 		       Thread.sleep(4000);
 		WebElement Education = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[3]")));
-		Thread.sleep(2000);
-		js.executeScript("arguments[0].scrollIntoView();",Education);				
-		Thread.sleep(2000);
-		
+				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Education);
+		Thread.sleep(3000);
 		Education.click();
 		Thread.sleep(3000);
 	
@@ -591,9 +613,9 @@ public class paypal_checkout extends SetupClass {
 		driver.get("https://www.slideteam.net/pricing");
 		       Thread.sleep(4000);
 		WebElement Education = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[3]")));
-		Thread.sleep(2000);
-		js.executeScript("arguments[0].scrollIntoView();",Education);				
-		Thread.sleep(2000);
+				Thread.sleep(2000);
+		js.executeScript("arguments[0].scrollIntoView();",Education);
+		Thread.sleep(3000);
 		Education.click();
 		Thread.sleep(3000);
 	
@@ -613,16 +635,11 @@ public class paypal_checkout extends SetupClass {
 		
 	}
 	
-	
-	
-	
 	@Then("^user is redirected to pricing page and choose a plan to pay pp$")
 	public void user_is_redirected_to_pricing_page_and_choose_a_plan_to_pay_pp() throws Throwable {
 	   
-		try {
-			Thread.sleep(4000);
-			driver.get("https://www.slideteam.net/pricing");
-		//driver.get("https://www.slideteam.net/pricing?utm_expid=.ob6CI18MTrailD_9AQRC-g.0&utm_referrer=https%3A%2F%2Fwww.slideteam.net%2Fpricing");
+		
+		driver.get("https://www.slideteam.net/pricing?utm_expid=.ob6CI18MTrailD_9AQRC-g.0&utm_referrer=https%3A%2F%2Fwww.slideteam.net%2Fpricing");
 		Thread.sleep(4000);
 		// choose a plan
 		 WebElement join_now_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[3]//div[3]//span[1]//form[1]//button[1]//span[1]")));
@@ -631,28 +648,17 @@ public class paypal_checkout extends SetupClass {
 		    join_now_btn.click();
 			Thread.sleep(5000);
 
-			///
-		/* WebElement join_now_btn  = driver.findElement(By.cssSelector("div.col-box:nth-child(2) > div:nth-child(3) > span:nth-child(1) > form:nth-child(1) > button:nth-child(4) > span:nth-child(1)"));
-		// WebElement join_now_btn  = driver.findElement(By.xpath("(//span[contains(.,'Join now')])[8]"));
-			js.executeScript("arguments[0].scrollIntoView();",join_now_btn);	
-			Thread.sleep(2000);
-		    join_now_btn.click();
-			Thread.sleep(6000);*/
-		} catch( NoSuchElementException popup) {
-		}
-
-
 	}
 
 	@Then("^user is redirected to checkout page pp$")
 	public void user_is_redirected_to_checkout_page_pp() throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		try
 		{
-			WebElement cp_btn  = driver.findElement(By.xpath("//input[@id='paypal_express']"));
-			Thread.sleep(8000);
+			WebElement cp_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='paypal_express']")));
+			Thread.sleep(2000);
 		    cp_btn.click();
-		    Thread.sleep(6000);
+		    Thread.sleep(3000);
 		}
 		catch (Exception e) {
 			// TODO: handle exception
@@ -668,9 +674,9 @@ public class paypal_checkout extends SetupClass {
 		// place order button 
 		try
 		{
-			  WebElement place_order_btn  = driver.findElement(By.xpath("//span[contains(text(),'Place Order')]"));
-			js.executeScript("arguments[0].scrollIntoView();",place_order_btn);
-			  Thread.sleep(3000);
+			  WebElement place_order_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Place Order')]")));
+			js.executeScript("arguments[0].scrollIntoView();",place_order_btn);	
+			Thread.sleep(3000);
 		          place_order_btn.click();
 			  Thread.sleep(5000);
 		}
@@ -678,72 +684,7 @@ public class paypal_checkout extends SetupClass {
 			 //TODO: handle exception	 
 	        } 
 		Thread.sleep(1000);
-		
-	}
-
-	@Then("^paypal popup appears and user navigates back to my account pp$")
-	public void paypal_popup_appears_and_user_navigates_back_to_my_account_pp() throws Throwable {
-	        //WebDriverWait wait = new WebDriverWait(driver,100);
-		  // Maximize Window
-		  driver.manage().window().maximize();
-		//Cookie name = new Cookie("Paypal", "123456789123");
-		//driver.manage().addCookie(name);
-		   driver.manage().getCookies();
-		  // Store the CurrentWindow for future reference
-		 // String handle = " ";
-		  String currentWindow = driver.getWindowHandle();
-		  String popupWindowHandle = null;
-		   
-		  // Switch To Popup Window
-		  
-		  for(String handle : driver.getWindowHandles()){
-		   if(!handle.equals(currentWindow)){
-		    
-		    popupWindowHandle = handle;
-			    
-		    driver.switchTo().window(popupWindowHandle);
-			   driver.manage().window().maximize();
-			  
-		   }
-		  }
-		  
-		  
-		  
-		// page title
-		  String pp_page_title=driver.getTitle();
-			Thread.sleep(3000);
-		    System.out.println("Title of the Page is --> "+pp_page_title);
-		    
-		 // place order button 
-		try{
-			 driver.manage().getCookies();
-			 WebElement cancel_order_btn  = driver.findElement(By.xpath("(//a[contains(.,'Cancel and return to Slideteam Pte. Ltd.')])[2]"));
-		js.executeScript("arguments[0].scrollIntoView();",cancel_order_btn);		
-		Thread.sleep(2000);
-			    cancel_order_btn.click();
-				Thread.sleep(5000);
-		} catch(NoSuchElementException popup) {
-		} 
-		
-
-				 // Switch To Default Window
-				  
-				  driver.switchTo().window(currentWindow);
-		    
-	}
-
-	@Then("^user deleted the account pp$")
-	public void user_deleted_the_account_pp() throws Throwable {
-	   Thread.sleep(2000);
-		
-
-		/* driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
-		 Thread.sleep(3000);
-		 
-		
-
-
-try {
+		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
@@ -768,18 +709,205 @@ try {
 				catch(NoSuchElementException NCP) {
 					
 				}
+	}
 
+	@Then("^paypal popup appears and user navigates back to my account pp$")
+	public void paypal_popup_appears_and_user_navigates_back_to_my_account_pp() throws Throwable {
+	    
+		  driver.manage().window().maximize();
+		
+		  // Store the CurrentWindow for future reference
+		 // String handle = " ";
+		  String currentWindow = driver.getWindowHandle();
+		  String popupWindowHandle = null;
+		   
+		  // Switch To Popup Window
+		  
+		  for(String handle : driver.getWindowHandles()){
+		   if(!handle.equals(currentWindow)){
+		    
+		    popupWindowHandle = handle;
+		     driver.switchTo().window(popupWindowHandle);
+		   }
+		  }
+		  
+		 
+		  
+		// page title
+		  String pp_page_title=driver.getTitle();
+			Thread.sleep(3000);
+		    System.out.println("Title of the Page is --> "+pp_page_title);
+		
+		
+	
+		/* WebElement PP_Email = driver.findElement(By.xpath("/html/body/div[1]/section[2]/div/div/form/div[3]/div[1]/div[2]/div[1]/input"));
+                         Thread.sleep(2000);
+		   PP_Email.sendKeys("tatvashardul-buyer@gmail.com");
+		   Thread.sleep(2000);
+		   WebElement Next_1 = driver.findElement(By.id("btnNext"));
+							 Thread.sleep(3000);
+		 Next_1.click();
+		  Thread.sleep(3000);
+		   String actualTitle = "$249.99";
+		Thread.sleep(1000);
+		//wait.implictywait(driver);
+		String expectedTitle = "$249.99";
+		Thread.sleep(1000);
+		//wait.implictywait(driver);
+		Assert.assertEquals(expectedTitle, actualTitle);
+		Thread.sleep(2000);
+		js.executeScript("alert('Text $249.99 is present and correct');");
+		Thread.sleep(3000);
+		driver.switchTo().alert().accept();
+		//wait.implictywait(driver);
+		Thread.sleep(5000);
+		driver.get("https://www.slideteam.net/checkout/");
+		Thread.sleep(2000);	
+		
+		 driver.get("https://www.slideteam.net/pricing");
+		Thread.sleep(2000*/
+		 //  WebElement Education = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[2]/div[1]/div/div/button[3]")));
+				//Thread.sleep(2000);
+		//Education.click();
+		//Thread.sleep(3000);
+		//js.executeScript("window.scrollBy(0,1000)");
+		// WebElement join_now_btn1  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#Education > div > div.slide-product > div.col-box.table-col.item.education_call.last.control > div.col.col2.col-bg2 > span > form > button > span")));
+			//Thread.sleep(6000);
+		//js.executeScript("arguments[0].scrollIntoView();",join_now_btn1);	
+		//Thread.sleep(2000);
+		 //   join_now_btn1.click();
+			//Thread.sleep(5000);
+	
+		/*    try
+		{
+			WebElement cp_btn1  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='paypal_express']")));
+			Thread.sleep(2000);
+		    cp_btn1.click();
+		    Thread.sleep(3000);
+		}
+		catch (NoSuchElementException popup) {
+			// TODO: handle exception
+		}
+		
+		Thread.sleep(1000);
+		   try {
+			
+		 WebElement place_order_btna  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Place Order')]")));
+			js.executeScript("arguments[0].scrollIntoView();",place_order_btna);	
+			Thread.sleep(3000);
+		          place_order_btna.click();
+			  Thread.sleep(5000);
+			   
+		} catch (NoSuchElementException popup) {
+		}
+		         Thread.sleep(3000);
+		  driver.manage().window().maximize();
+		
+		  // Store the CurrentWindow for future reference
+		 // String handle = " ";
+		  String currentWindow1 = driver.getWindowHandle();
+		  String popupWindowHandle1 = null;
+		   
+		  // Switch To Popup Window
+		  
+		  for(String handle : driver.getWindowHandles()){
+		   if(!handle.equals(currentWindow1)){
+		    
+		    popupWindowHandle1 = handle;
+		     driver.switchTo().window(popupWindowHandle1);
+			   driver.manage().window().maximize();
+		   }
+		  }
+		  
+		
+			 // page title
+		  String pp_page_title1=driver.getTitle();
+			Thread.sleep(3000);
+		    System.out.println("Title of the Page is --> "+pp_page_title);
+		    
+		/* // place order button 
+			 WebElement cancel_order_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(.,'Cancel and return to Slideteam Pte. Ltd.')])[2]")));
+		js.executeScript("arguments[0].scrollIntoView();",cancel_order_btn);		
+		Thread.sleep(2000);
+			    cancel_order_btn.click();
+				Thread.sleep(5000);*/
+		//Thread.sleep(5000);
+		//WebElement Click_to_Continue = driver.findElement(By.cssSelector("#zoid-paypal-checkout-62c4d4ee31 > div.paypal-checkout-modal > div.paypal-checkout-continue > a"));
+		//Thread.sleep(5000);
+		//Click_to_Continue.click();
+		//Thread.sleep(2000);
+		// WebElement PP_Email1 = driver.findElement(By.id("email"));
+                   //      Thread.sleep(2000);
+		//   PP_Email1.sendKeys("tatvashardul-buyer@gmail.com");
+		 //  Thread.sleep(2000);
+		 //  WebElement Next_2 = driver.findElement(By.id("btnNext"));
+				//			 Thread.sleep(3000);
+		// Next_2.click();
+		//  Thread.sleep(3000);
+			 //Thread.sleep(3000);
+		  // String actualTitle1 = "$1,999.99";
+		//Thread.sleep(1000);
+		//wait.implictywait(driver);
+		//String expectedTitle1 = "$1,999.99";
+		//Thread.sleep(1000);
+		//wait.implictywait(driver);
+		//Assert.assertEquals(expectedTitle1, actualTitle1);
+		//Thread.sleep(2000);
+		//js.executeScript("alert('Text $1,999.99 is present and correct');");
+		//Thread.sleep(3000);
+		//driver.switchTo().alert().accept();
+		//wait.implictywait(driver);
+		//Thread.sleep(5000);
+		//Thread.sleep(3000);
+		// WebElement cancel_order_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(.,'Cancel and return to Slideteam Pte. Ltd.')])[2]")));
+				//js.executeScript("arguments[0].scrollIntoView();",cancel_order_btn);
+		//Thread.sleep(2000);
+			   // cancel_order_btn.click();
+				//Thread.sleep(5000);
+			 
+			
+			//	driver.get("https://www.slideteam.net/checkout/");
+		//Thread.sleep(2000);	
+		
+		// Switch To Default Window
+				  
+			//	  driver.switchTo().window(currentWindow);
+		// driver.get("https://www.slideteam.net/pricing");
+		//Thread.sleep(2000);
+				 // driver.switchTo().window(currentWindow);
+			 
+		    
+		 // place order button 
+			 
 
+				 
+		//Thread.sleep(3000);
+		//WebElement Click_to_Continue = driver.findElement(By.cssSelector("#zoid-paypal-checkout-b420ea11ec > a"));
+		//Thread.sleep(5000);
+		//Click_to_Continue.click();
+		//Thread.sleep(4000);
+		    
+	}
 
-		WebElement delete_account =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Delete Account')]")));
-		 js.executeScript("arguments[0].scrollIntoView();",delete_account);
+	@Then("^user deleted the account pp$")
+	public void user_deleted_the_account_pp() throws Throwable {
+	   
+		Thread.sleep(3000);
+	    WebElement account = driver.findElement(By.xpath("//a[contains(.,'My Account')]"));
+			  Thread.sleep(3000);
+			account.click();
+		 Thread.sleep(3000);
+		 
+		
+
+		 WebElement delete_account = driver.findElement(By.cssSelector("#clicking"));
+		js.executeScript("arguments[0].scrollIntoView();",delete_account);
 		 delete_account.click();
 		 Thread.sleep(3000);
-		
-		WebElement delete_btn = driver.findElement(By.cssSelector("#exampleRadios1"));
-		 Thread.sleep(3000);
-		delete_btn.click();
-		 Thread.sleep(3000);
+		WebElement delete_reason = driver.findElement(By.cssSelector("#exampleRadios1"));
+		Thread.sleep(3000);
+		delete_reason.click();
+		Thread.sleep(3000);
 		
 		 WebElement delete_profile = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#delete-final")));
 		js.executeScript("arguments[0].scrollIntoView();",delete_profile);
@@ -790,17 +918,7 @@ try {
 		js.executeScript("arguments[0].scrollIntoView();",delete_profile_coupon);
 		delete_profile_coupon.click();
 		 Thread.sleep(3000);
-	}*/
-		try {
-			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
-			if (logout.isEnabled()) {
-				logout.click();
-				Thread.sleep(8000);
-				driver.navigate().refresh();
-				Thread.sleep(2000);
-			}
-		} catch (NoSuchElementException Ext) {
-		}
+		
 	}
 
 }
