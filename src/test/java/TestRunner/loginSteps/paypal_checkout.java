@@ -894,7 +894,7 @@ public class paypal_checkout extends SetupClass {
 	   
 		Thread.sleep(3000);
 	   // WebElement account = driver.findElement(By.xpath("//a[contains(.,'My Account')]"));
-		driver.get("https://www.slideteam.net/customer/account/")'
+		driver.get("https://www.slideteam.net/customer/account/");
 			  Thread.sleep(3000);
 			//account.click();
 		 Thread.sleep(3000);
