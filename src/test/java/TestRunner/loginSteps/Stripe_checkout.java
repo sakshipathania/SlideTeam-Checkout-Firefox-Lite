@@ -644,7 +644,7 @@ public class Stripe_checkout extends SetupClass{
 	@Then("^user proceed to pay with (\\d+)CO (\\d+)CO$")
 	public void user_proceed_to_pay_with_CO_CO(int arg1, int arg2) throws InterruptedException {
 	     try {
-		Thread.sleep(1400);
+		Thread.sleep(10000);
 		// select 2co option
 		WebElement co_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#amasty_stripe")));
 		Thread.sleep(2000);
