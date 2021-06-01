@@ -646,27 +646,27 @@ public class Stripe_checkout extends SetupClass{
 	     try {
 		Thread.sleep(10000);
 		// select 2co option
-		WebElement co_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#amasty_stripe")));
-		Thread.sleep(7000);
-	         co_btn.click();
-		Thread.sleep(5000);
+	//	WebElement co_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#amasty_stripe")));
+	//	Thread.sleep(7000);
+	  //       co_btn.click();
+	//	Thread.sleep(5000);
 	   
-		WebElement Stripe_name  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#stripe-name")));
-		Thread.sleep(2000);
-	         Stripe_name.sendKeys("QA");
-		Thread.sleep(5000);
+	//	WebElement Stripe_name  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#stripe-name")));
+	//	Thread.sleep(2000);
+	  //       Stripe_name.sendKeys("QA");
+	//	Thread.sleep(5000);
 		
 		
-		WebElement Stripe_email  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#stripe-email")));
-		Thread.sleep(2000);
-	         Stripe_email.sendKeys("sakshi.pathania@slidetech.in");
-		Thread.sleep(5000);
+	//	WebElement Stripe_email  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#stripe-email")));
+	//	Thread.sleep(2000);
+	  //       Stripe_email.sendKeys("sakshi.pathania@slidetech.in");
+	//	Thread.sleep(5000);
 		
 		
-		WebElement Stripe_card  =  driver.findElement(By.className("InputElement is-empty Input Input--empty"));
-		Thread.sleep(2000);
-	         Stripe_card.sendKeys("4242424242424242");
-		Thread.sleep(5000);
+	//	WebElement Stripe_card  =  driver.findElement(By.className("InputElement is-empty Input Input--empty"));
+	//	Thread.sleep(2000);
+	  //       Stripe_card.sendKeys("4242424242424242");
+	//	Thread.sleep(5000);
 		   //  Stripe_card.clear();
 		  } catch( NoSuchElementException popup) { 
 	     }
